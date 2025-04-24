@@ -4,11 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Flipper</title>
-  <link rel="stylesheet" href="color_flipper.css">
+  <style type="text/css">
+    :root {
+  --primary-font: white;
+  --secondary-font: #333;
+  --button-color: #4caf50;
+  --button-hover: #45a049;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  transition: background-color 0.5s;
+}
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--button-color);
+  color: var(--primary-font);
+}
+button:hover {
+  background-color: var(--button-hover);
+}
+h1 {
+  font-size: 24px;
+  color: var(--secondary-font);
+}
+h1.active {
+  color: var(--primary-font);
+}
+
+  </style>
 </head>
 <body>
   <h1 id="color-name">Click the button to change the color!</h1>
   <button id="color-btn">Change Color</button>
-  <script src="color_flipper.js"></script>
+  <script type="text/javascript">
+    const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Purple', 'Orange', 'Pink', 'Violet', 'Brown', 'Maroon', 'Gold', 'Navy', 'Crimson', 'Aqua', 'Turquoise', 'Silver', 'Teal', 'Wheat', 'Salmon', 'Lime'];
+const colorButton = document.getElementById('color-btn');
+const colorName = document.getElementById('color-name');
+
+function getRandomColor() {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+}
+
+colorButton.addEventListener('click', () => {
+    const newColor = getRandomColor();
+    document.body.style.colorName = newColor;
+    if (newColor === "Red" || newColor === "Blue" || newColor === "Green" || newColor === "Purple" || newColor === "Brown" || newColor === "Maroon" || newColor === "Navy" || newColor === "Crimson" || newColor === "Teal") {
+        colorName.classList.add('active');
+    } else {
+        colorName.classList.remove('active');
+    }
+    document.body.style.backgroundColor = newColor;
+    colorName.textContent = `Color: ${newColor}`;
+    colorButton.style.color = newColor;
+    colorButton.style.backgroundColor = "white";
+});
+
+  </script>
 </body>
 </html>
