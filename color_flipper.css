@@ -34,10 +34,3 @@ h1 {
 h1.active {
   color: var(--primary-font);
 }
-button.invert {
-  background-color: var(--primary-font);
-  color: var(--button-color);
-}
-button.invert:hover {
-  color: var(--button-hover);
-}

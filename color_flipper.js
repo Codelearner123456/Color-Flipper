@@ -15,13 +15,8 @@ colorButton.addEventListener('click', () => {
     } else {
         colorName.classList.remove('active');
     }
-    if (newColor === "Green") {
-        colorButton.classList.add('invert');
-    } ifelse (newColor === "Pink") {
-        colorButton.classList.a
-    }else {
-        colorButton.classList.remove('invert');
-    }
     document.body.style.backgroundColor = newColor;
     colorName.textContent = `Color: ${newColor}`;
+    colorButton.style.color = newColor;
+    colorButton.style.backgroundColor = "white";
 });
